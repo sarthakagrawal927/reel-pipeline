@@ -1,0 +1,24 @@
+{
+  "name": "reel-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Control-plane-friendly reel generation pipeline for SaaS Maker marketing queue items.",
+  "scripts": {
+    "dev": "node src/server/index.js",
+    "test": "node --test",
+    "bootstrap:cloudflare": "node scripts/bootstrap-cloudflare.js",
+    "probe:engines": "node scripts/probe-engines.js",
+    "canary:moneyprinter": "node scripts/canary-moneyprinter-local.js",
+    "check:cloudflare": "node scripts/check-cloudflare-readiness.js",
+    "render:accepted": "node scripts/render-accepted-marketing-posts.js",
+    "post:ready": "node scripts/post-ready-marketing-videos.js",
+    "smoke:full": "node scripts/smoke-full-pipeline.js",
+    "smoke:artifact": "node scripts/smoke-live-artifact.js",
+    "smoke:mock": "node scripts/smoke-mock.js",
+    "worker:dry-run": "npx wrangler deploy --dry-run"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
